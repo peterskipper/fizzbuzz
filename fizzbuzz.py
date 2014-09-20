@@ -1,9 +1,22 @@
-#fizz buzz v1 
+#fizz buzz v2 
 #Unit 1 Lesson 4 Project
 import sys
 
-print "Fizz buzz counting up to 100"
-limit = 100
+#Check for user provided limit on command line
+try:
+	limit = sys.argv[1]
+except:
+	limit = ''
+
+#loop until valid input received
+while not isinstance(limit,int):
+	try:
+		limit = int(limit)
+	except:
+		limit = raw_input("Enter a whole number to count up to: ")
+
+print "Fizz buzz counting up to {lim}".format(lim=limit)
+
 for i in xrange(1,limit+1):
 	fizzbuzz = False
 	if i % 3 == 0:
